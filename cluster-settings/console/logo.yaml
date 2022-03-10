@@ -11,7 +11,7 @@ data:
 apiVersion: operator.openshift.io/v1
 kind: Console
 metadata:
-  name: cluster
+  name: cluster1
 spec:
   customization:
     customLogoFile:
