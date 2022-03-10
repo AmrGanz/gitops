@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: test-link
+spec:
+  href: https://github.com/
+  location: ApplicationMenu
+  text: GitHub
