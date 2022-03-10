@@ -5,6 +5,6 @@ metadata:
 spec:
   customization:
     customLogoFile:
-      key: console-logo.gif
-      name: console-logo
+      key: console-custom-logo.gif
+      name: console-custom-logo
     customProductName: My Console
