@@ -1,0 +1,10 @@
+apiVersion: operator.openshift.io/v1
+kind: Console
+metadata:
+  name: cluster1
+spec:
+  customization:
+    customLogoFile:
+      key: console-logo.gif
+      name: console-logo
+    customProductName: My Console
