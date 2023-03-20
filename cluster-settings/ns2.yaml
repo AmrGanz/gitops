@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: ns2
+    argocd.argoproj.io/sync-wave: "2"
+  name: ns2
