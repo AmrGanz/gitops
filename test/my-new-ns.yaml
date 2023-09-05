@@ -2,6 +2,6 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/sa.scc.supplemental-groups: 10101/50000
-    openshift.io/sa.scc.uid-range: 10101/50000
-  name: my-new-ns-1
+    openshift.io/sa.scc.supplemental-groups: 1000760000/10000
+    openshift.io/sa.scc.uid-range: 1000760000/10000
+  name: project-no-mcs
