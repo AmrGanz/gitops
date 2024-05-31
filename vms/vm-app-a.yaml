@@ -1,0 +1,69 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    app: app-a
+    vm.kubevirt.io/template: app-a-server-small
+  name: app-a
+  namespace: vms
+spec:
+  dataVolumeTemplates:
+  - apiVersion: cdi.kubevirt.io/v1beta1
+    kind: DataVolume
+    metadata:
+      name: app-a
+    spec:
+      source:
+        http:
+          url: https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2
+      storage:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 30Gi
+  running: false
+  template:
+    metadata:
+      annotations:
+        vm.kubevirt.io/flavor: small
+        vm.kubevirt.io/os: app-a
+        vm.kubevirt.io/workload: server
+      labels:
+        kubevirt.io/domain: app-a
+        kubevirt.io/size: small
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: "sno.upi0.mylab.local"
+      domain:
+        cpu:
+          cores: 1
+          sockets: 1
+          threads: 1
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: rootdisk
+          - disk:
+              bus: virtio
+            name: cloudinitdisk
+          networkInterfaceMultiqueue: true
+          rng: {}
+        machine:
+          type: pc-q35-rhel8.6.0
+        resources:
+          requests:
+            memory: 2Gi
+      terminationGracePeriodSeconds: 180
+      volumes:
+      - dataVolume:
+          name: app-a
+        name: rootdisk
+      - cloudInitNoCloud:
+          userData: |-
+            #cloud-config
+            user: user
+            password: redhat
+            chpasswd: { expire: False }
+        name: cloudinitdisk
