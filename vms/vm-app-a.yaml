@@ -1,21 +1,18 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  labels:
-    app: app-a
-    vm.kubevirt.io/template: app-a-server-small
-  name: app-a
-  namespace: vms
+  name: centos7
 spec:
   dataVolumeTemplates:
   - apiVersion: cdi.kubevirt.io/v1beta1
     kind: DataVolume
     metadata:
-      name: app-a
+      creationTimestamp: null
+      name: centos7
     spec:
       source:
         http:
-          url: https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2
+          url: https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2
       storage:
         accessModes:
         - ReadWriteOnce
@@ -27,14 +24,13 @@ spec:
     metadata:
       annotations:
         vm.kubevirt.io/flavor: small
-        vm.kubevirt.io/os: app-a
+        vm.kubevirt.io/os: centos7
         vm.kubevirt.io/workload: server
+      creationTimestamp: null
       labels:
-        kubevirt.io/domain: app-a
+        kubevirt.io/domain: centos7
         kubevirt.io/size: small
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: "sno.upi0.mylab.local"
       domain:
         cpu:
           cores: 1
@@ -48,6 +44,10 @@ spec:
           - disk:
               bus: virtio
             name: cloudinitdisk
+          interfaces:
+          - macAddress: 02:76:88:00:00:05
+            masquerade: {}
+            name: default
           networkInterfaceMultiqueue: true
           rng: {}
         machine:
@@ -55,10 +55,14 @@ spec:
         resources:
           requests:
             memory: 2Gi
+      evictionStrategy: LiveMigrate
+      networks:
+      - name: default
+        pod: {}
       terminationGracePeriodSeconds: 180
       volumes:
       - dataVolume:
-          name: app-a
+          name: centos7
         name: rootdisk
       - cloudInitNoCloud:
           userData: |-
