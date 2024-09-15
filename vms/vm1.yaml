@@ -4,7 +4,7 @@ metadata:
   name: vm1
   namespace: vms
 spec:
-  running: false
+  running: true
   dataVolumeTemplates:
   - apiVersion: cdi.kubevirt.io/v1beta1
     kind: DataVolume
