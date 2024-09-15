@@ -45,7 +45,7 @@ spec:
           seccompProfile:
             type: RuntimeDefault
       dnsPolicy: ClusterFirst
-      restartPolicy: Never
+      restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
