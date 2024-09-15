@@ -4,7 +4,6 @@ metadata:
   name: vm1
   namespace: vms
 spec:
-  runStrategy: RerunOnFailure
   dataVolumeTemplates:
   - apiVersion: cdi.kubevirt.io/v1beta1
     kind: DataVolume
@@ -32,6 +31,7 @@ spec:
         kubevirt.io/domain: centos7
         kubevirt.io/size: small
     spec:
+      running: true
       domain:
         cpu:
           cores: 1
