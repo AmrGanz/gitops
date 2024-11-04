@@ -1,18 +1,18 @@
----
-# Source: ipi1-cluster-provisioning-non-prod/charts/cluster-provisioning-base-chart-dev/templates/namespace.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: myhi
----
-# Source: ipi1-cluster-provisioning-non-prod/charts/cluster-provisioning-base-chart-dev/templates/namespace.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: ipi1
-  labels:
-    cluster.open-cluster-management.io/managedCluster: ipi1
-    open-cluster-management.io/cluster-name: ipi1
+# ---
+# # Source: ipi1-cluster-provisioning-non-prod/charts/cluster-provisioning-base-chart-dev/templates/namespace.yaml
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: myhi
+# ---
+# # Source: ipi1-cluster-provisioning-non-prod/charts/cluster-provisioning-base-chart-dev/templates/namespace.yaml
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: ipi1
+#   labels:
+#     cluster.open-cluster-management.io/managedCluster: ipi1
+#     open-cluster-management.io/cluster-name: ipi1
 ---
 # Source: ipi1-cluster-provisioning-non-prod/charts/cluster-provisioning-base-chart-dev/templates/capi-provider-role.yaml
 kind: Role
