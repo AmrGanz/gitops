@@ -10,7 +10,6 @@ spec:
     name: 'ipi1'
   holdInstallation: true
   provisionRequirements:
-    workerAgents: 0
     controlPlaneAgents: 3
   imageSetRef:
     name: 'img4.17.3-multi-appsub'
