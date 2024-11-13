@@ -47,7 +47,6 @@ spec:
   provisionRequirements:
     controlPlaneAgents: 3
   sshPublicKey: >-
-    ssh-rsa
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCf/CNr8ZyKQsdbXeQ3jVBrKHHtYTUJ0BzRi+nWbrWqHwLW2duByT2X/3K2xQxSeO7k9fIKfk4f+0KTie856JnR1dRE3aFGqB/6FLm0GTGhMkm59j+cgyvMijclGLjYLCj9rJPDnN2RNWsmho5BjIFO2r171Lzwhm9KYxUwOQmhd7OAx6IMNnfUmhpokNTSvADeMBVIj9kT0mKAFWQtU7yQEdOx3pzO3POz5tlOq5AwGRpdhF/7KP11xHAqRIyzZsFyhMresLqar5Bwm4QqngANRGm3R8iea9eMFR9fJHnUeqLsZFLihWYnVJJ1jeHmLANCV1BMCkixEU2vgu6Bt0paWUBWFHk4ZR3reSJvWfgDhT+x+p1UW4hANaybGpmt6DHYGEnKHQZGjTaVNbfzauNWB5w+OlW9EFl2MKVwTGykNkWKatuarxrMRJ78HQ4wkwW2LkQdiWrFPrTTroCQgH13KDHT6UhmvvxgLIs4z/DcqbZ9hFaBT5T6Sxp8iuxaTd0= amr@lt.mylab.local
 ---
 kind: Secret
