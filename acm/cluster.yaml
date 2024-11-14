@@ -1,8 +1,8 @@
 apiVersion: hive.openshift.io/v1
 kind: ClusterDeployment
 metadata:
-  name: ipi1
-  namespace: ipi1
+  name: ipi2
+  namespace: ipi2
   labels:
     cluster.open-cluster-management.io/clusterset: default
     hive.openshift.io/cluster-platform: agent-baremetal
@@ -11,9 +11,9 @@ spec:
   clusterInstallRef:
     group: extensions.hive.openshift.io
     kind: AgentClusterInstall
-    name: ipi1
+    name: ipi2
     version: v1beta1
-  clusterName: ipi1
+  clusterName: ipi2
   controlPlaneConfig:
     servingCertificates: {}
   installed: false
@@ -21,17 +21,17 @@ spec:
     agentBareMetal:
       agentSelector: {}
   pullSecretRef:
-    name: pullsecret-cluster-ipi1
+    name: pullsecret-cluster-ipi2
 ---
 apiVersion: extensions.hive.openshift.io/v1beta1
 kind: AgentClusterInstall
 metadata:
-  name: ipi1
-  namespace: ipi1
+  name: ipi2
+  namespace: ipi2
 spec:
   apiVIP: 192.168.1.52
   clusterDeploymentRef:
-    name: ipi1
+    name: ipi2
   holdInstallation: false
   imageSetRef:
     name: img4.16.14-x86-64-appsub
@@ -52,8 +52,8 @@ spec:
 kind: Secret
 apiVersion: v1
 metadata:
-  name: pullsecret-cluster-ipi1
-  namespace: ipi1
+  name: pullsecret-cluster-ipi2
+  namespace: ipi2
   labels:
     agent-install.openshift.io/watch: 'true'
     cluster.open-cluster-management.io/backup: cluster
@@ -65,11 +65,11 @@ type: kubernetes.io/dockerconfigjson
 apiVersion: cluster.open-cluster-management.io/v1
 kind: ManagedCluster
 metadata:
-  name: ipi1
+  name: ipi2
   labels:
     cloud: BareMetal
     cluster.open-cluster-management.io/clusterset: default
-    name: ipi1
+    name: ipi2
     vendor: OpenShift
 spec:
   hubAcceptsClient: true
@@ -78,8 +78,8 @@ spec:
 apiVersion: agent.open-cluster-management.io/v1
 kind: KlusterletAddonConfig
 metadata:
-  name: ipi1
-  namespace: ipi1
+  name: ipi2
+  namespace: ipi2
 spec:
   applicationManager:
     enabled: true
@@ -88,8 +88,8 @@ spec:
   clusterLabels:
     cloud: BareMetal
     vendor: OpenShift
-  clusterName: ipi1
-  clusterNamespace: ipi1
+  clusterName: ipi2
+  clusterNamespace: ipi2
   policyController:
     enabled: true
   searchCollector:
